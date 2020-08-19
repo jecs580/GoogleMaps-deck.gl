@@ -20,7 +20,10 @@ function transformCoordinates(x,y) {
 }
 function filterByCountries(rows) {
     catalogCountries.map(country=>{
-        let selection=rows.filter(row => row['COUNTRY'] === country);
+        let selection=rows;
+        if(country!='All'){
+            selection=rows.filter(row => row['COUNTRY'] === country);
+        }
         console.log(`Country: ${country} - Selection: ${selection.length}`);
         let cleanData = selection.map(item =>{
             let coords= transformCoordinates(item['X'],item['Y']);
