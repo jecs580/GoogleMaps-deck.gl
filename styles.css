@@ -1,0 +1,12 @@
+body{
+    margin:0;
+}
+#map{
+    width: 100vw;
+    height: 90vh;
+}
+#controls{
+    border:1px solid red;
+    height: 10vh;
+    box-sizing: border-box;
+}
