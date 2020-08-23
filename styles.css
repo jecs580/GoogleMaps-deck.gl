@@ -31,3 +31,18 @@ button:hover, button.is-active{
     background: #82a467;
     color: white;
 }
+#loader{
+    position:absolute;
+    left:0;
+    right: 0;
+    margin: auto;
+    z-index: 2;
+    transform: translateY(calc(45vh - 50%));
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+}
+#loader.is-active{
+    opacity: 1;
+    visibility: visible;
+}

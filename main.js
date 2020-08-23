@@ -2,12 +2,15 @@ const $map = document.getElementById('map'); // Colocamos con un $ adelante a lo
 const $controls =document.getElementById('controls');
 const EUROPE_CENTER = {lat: 47.582798, lng: 9.707756};
 const {ScatterplotLayer,GoogleMapsOverlay}=deck;
+const $loader=document.getElementById('loader');
 let GMAP, DECKGL_OVERLAY, DATA_COUNTRY;
 async function updateMap() {
+  
   const $activeElement = document.querySelector('.is-active');
   if($activeElement){
     $activeElement.classList.remove('is-active');
   }
+  $loader.classList.add('is-active');
   this.classList.add('is-active');
   let country=this.textContent.replace(/ /g,'').toLowerCase();
   let layer= await getLayer(country);
@@ -19,6 +22,7 @@ async function updateMap() {
     GMAP.setCenter({lat:DATA_COUNTRY[0].lat,lng:DATA_COUNTRY[0].lng});
     GMAP.setZoom(5);
   }
+  $loader.classList.remove('is-active');
 }
 async function getLayer(country='austria') {
   // Pinta de un punto en la posicion de cada arbol
