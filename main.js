@@ -4,6 +4,11 @@ const EUROPE_CENTER = {lat: 47.582798, lng: 9.707756};
 const {ScatterplotLayer,GoogleMapsOverlay}=deck;
 let GMAP, DECKGL_OVERLAY;
 async function updateMap() {
+  const $activeElement = document.querySelector('.is-active');
+  if($activeElement){
+    $activeElement.classList.remove('is-active');
+  }
+  this.classList.add('is-active');
   let country=this.textContent.replace(/ /g,'').toLowerCase();
   let layer= await getLayer(country);
   DECKGL_OVERLAY.setProps({layers:[await layer]})
