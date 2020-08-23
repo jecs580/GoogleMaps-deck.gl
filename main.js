@@ -1,3 +1,5 @@
+// const mapStyle= require('./styles-map.js');
+import mapStyle from './mapStyles.js';  // Cuando hacemos uso de otro archivo de javascript lo traemos con el import
 const $map = document.getElementById('map'); // Colocamos con un $ adelante a los selectores.
 const $controls =document.getElementById('controls');
 const EUROPE_CENTER = {lat: 47.582798, lng: 9.707756};
@@ -55,7 +57,8 @@ async function renderButtons() {
 async function initMap() {
   GMAP = new google.maps.Map($map, {
     zoom: 4,
-    center: EUROPE_CENTER
+    center: EUROPE_CENTER,
+    styles:mapStyle,
   });
   DECKGL_OVERLAY= new GoogleMapsOverlay();  // Indicamos que genere una capa
   DECKGL_OVERLAY.setMap(GMAP); // Indicamos que la capa se colocara encima de GoogleMa p
