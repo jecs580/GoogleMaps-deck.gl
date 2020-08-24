@@ -1,5 +1,6 @@
 // const mapStyle= require('./styles-map.js');
 import mapStyle from './mapStyles.js';  // Cuando hacemos uso de otro archivo de javascript lo traemos con el import
+import colors from './speciesColors.js';
 const $map = document.getElementById('map'); // Colocamos con un $ adelante a los selectores.
 const $controls =document.getElementById('controls');
 const EUROPE_CENTER = {lat: 47.582798, lng: 9.707756};
@@ -33,13 +34,17 @@ async function getLayer(country='austria') {
   return await new ScatterplotLayer({
     id:'trees',
     data:DATA_COUNTRY,
+    opacity:0.8,
+    stroked:false, // borde
+    filled:true,
+    radiusScale:6,
     radiusMinPixels:1,
     radiusMaxPixels:100,
     lineWidthMinPixels:1,
-    getPosition:d=>[d.lng,d.lat],
-    getRadius:d=>50,
-    gerFillColor:d=>[0,155,115],
-    getLineColor:d=>[30,30,30]
+    getPosition:d=>[d.lng, d.lat],
+    getRadius :d=>50,
+    getFillColor:d=>colors[d.specie],
+    // getLineColor:d=>[30,30,30]
   });
 }
 function renderButtonElement(country) {
