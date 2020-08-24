@@ -10,8 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "colorthief": "^2.3.2",
     "csvtojson": "^2.0.10",
     "fs": "0.0.1-security",
+    "image-downloader": "^4.0.1",
+    "images-scraper": "^5.0.7",
+    "merge-img": "^2.1.3",
     "proj4": "^2.6.2"
   }
 }
